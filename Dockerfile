@@ -1,3 +1,6 @@
+# We are saying, build this image from the base image
+# In this case, you can go search for `node` in docker hub,
+# we see that we have an image which has node and npm installed inside
 FROM node:19-alpine
 
 # Copy package.json, wildcard used so both package.json AND package-lock.json are copied
@@ -11,6 +14,7 @@ COPY src /usr/app/
 WORKDIR /usr/app
 
 # Install app dependencies
+# inside the container, before the appl gets started.
 RUN npm install
 
 # Start the application
